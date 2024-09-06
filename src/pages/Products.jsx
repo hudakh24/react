@@ -3,6 +3,7 @@ import axios from "axios";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
+  const [searchedProducts, setSearchedProducts] = useState([]);
 
   const fetchProducts = async () => {
     try {
@@ -29,9 +30,12 @@ const ProductsPage = () => {
     console.log(e.target.value);
     const searchInput = e.target.value;
     const searchResult = products.filter((item) => {
-      if (searchInput === item.title) return true;
+      if (item.title.toLowerCase().includes(searchInput.toLowerCase())) {
+        return true;
+      }
     });
     console.log(searchResult);
+    setSearchedProducts(searchResult);
   };
 
   return (
