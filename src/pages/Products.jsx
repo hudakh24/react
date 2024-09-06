@@ -10,6 +10,7 @@ const ProductsPage = () => {
       const response = await axios.get("https://fakestoreapi.com/products");
       console.log(response.data);
       setProducts(response.data); // Update state with the fetched products
+      setSearchedProducts(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -20,10 +21,11 @@ const ProductsPage = () => {
   }, []);
 
   const deleteHandler = (id) => {
-    const updatedItems = products.filter((currentProduct) => {
+    const updatedItems = searchedProducts.filter((currentProduct) => {
       return currentProduct.id !== id;
     });
     setProducts(updatedItems);
+    setSearchedProducts(updatedItems);
   };
 
   const searchHandler = (e) => {
@@ -50,7 +52,7 @@ const ProductsPage = () => {
           marginTop: "20px",
         }}
       >
-        {products.map((product) => (
+        {setSearchedProducts.map((product) => (
           <div
             key={product.id}
             style={{
