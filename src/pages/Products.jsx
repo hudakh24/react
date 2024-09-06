@@ -24,9 +24,20 @@ const ProductsPage = () => {
     });
     setProducts(updatedItems);
   };
+
+  const searchHandler = (e) => {
+    console.log(e.target.value);
+    const searchInput = e.target.value;
+    const searchResult = products.filter((item) => {
+      if (searchInput === item.title) return true;
+    });
+    console.log(searchResult);
+  };
+
   return (
     <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
       <h1>Products Page</h1>
+      <input onChange={searchHandler} placeholder="Search the item"></input>
       <div
         style={{
           display: "grid",

@@ -6,8 +6,10 @@ const Counter = ({ itemName, onDelete }) => {
   const [count, setCount] = useState(0);
 
   const Increment = () => {
-    let value = count + 1;
-    setCount(value);
+    setCount(count + 1);
+    setCount((prevState) => {
+      return prevState + 1;
+    });
   };
   const Decrement = () => {
     let value = count - 1;
