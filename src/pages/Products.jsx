@@ -4,12 +4,14 @@ import axios from "axios";
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
   const [searchedProducts, setSearchedProducts] = useState([]);
+  const [userInput, setUserInput] = useState(""); //store input into state
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
       console.log(response.data);
       setProducts(response.data); // Update state with the fetched products
+      setSearchedProducts(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -24,13 +26,16 @@ const ProductsPage = () => {
       return currentProduct.id !== id;
     });
     setProducts(updatedItems);
+    setSearchedProducts(updatedItems);
+    setUserInput("");
   };
 
   const searchHandler = (e) => {
     console.log(e.target.value);
-    const searchInput = e.target.value;
+    // const searchInput = e.target.value;
+    setUserInput(e.target.value);
     const searchResult = products.filter((item) => {
-      if (item.title.toLowerCase().includes(searchInput.toLowerCase())) {
+      if (item.title.toLowerCase().includes(userInput.toLowerCase())) {
         return true;
       }
     });
@@ -41,7 +46,11 @@ const ProductsPage = () => {
   return (
     <div style={{ width: "80%", margin: "0 auto", textAlign: "center" }}>
       <h1>Products Page</h1>
-      <input onChange={searchHandler} placeholder="Search the item"></input>
+      <input
+        value={userInput}
+        onChange={searchHandler}
+        placeholder="Search the item"
+      ></input>
       <div
         style={{
           display: "grid",
@@ -50,7 +59,7 @@ const ProductsPage = () => {
           marginTop: "20px",
         }}
       >
-        {products.map((product) => (
+        {searchedProducts.map((product) => (
           <div
             key={product.id}
             style={{

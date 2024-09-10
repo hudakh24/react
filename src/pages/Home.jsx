@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Counter from "../components/Counter";
 import { useState, useEffect } from "react";
 
 const Home = () => {
   const [userInput, setUserInput] = useState(""); //store input into state
   const [items, setItems] = useState(["Jeans", "Shirt"]);
+  const navigate = useNavigate();
   // const [deleteCheck, setDeleteCheck] = useState(false);
 
   const handleInputChange = (e) => {
@@ -40,6 +42,15 @@ const Home = () => {
 
   return (
     <>
+      <h1>HOME PAGE</h1>
+      {/** useNavigate hook lets allow use the navigate function to move to certain route without anchor tags */}
+      <button
+        onClick={() => {
+          navigate("/user-auth/login");
+        }}
+      >
+        Login
+      </button>
       <input
         value={userInput}
         onChange={handleInputChange}
