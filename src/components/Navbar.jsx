@@ -2,16 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav
-      style={{
-        backgroundColor: "blue",
-        width: "100%",
-        fontSize: "30px",
-        padding: "5px",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
+    <nav className="flex w-full justify-between bg-teal-800">
       <h1>Navbar</h1>
       {/**NavLink is alternative to anchor tags as anchor tags will update the whole dom page but navlink will just update the certain parts */}
       <NavLink to={"/"}>Home</NavLink>

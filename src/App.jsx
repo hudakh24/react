@@ -9,6 +9,7 @@ import UserAuth from "./pages/UserAuth";
 import Signup from "./pages/Signup";
 import Layout from "./components/Layouts";
 import PrivateRoute from "./components/PrivateRoute";
+import "./index.css";
 
 const App = () => {
   return (
