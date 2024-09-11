@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -11,4 +12,24 @@ const Navbar = () => {
     </nav>
   );
 };
+=======
+const Navbar = () => {
+  return (
+    <nav
+      style={{
+        backgroundColor: "blue",
+        padding: "10px",
+        fontSize: "35px",
+        height: "40px",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {" "}
+      Welcome
+    </nav>
+  );
+};
+
+>>>>>>> 90224203b9b3167d4ee983f08c54ded6592090b3
 export default Navbar;

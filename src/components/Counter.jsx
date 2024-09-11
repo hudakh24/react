@@ -8,6 +8,7 @@ const Counter = ({ itemName, onDelete }) => {
   const Increment = () => {
     setCount(count + 1);
     setCount((prevState) => {
+      //this is called the updater function which is used when next value/state is dependent on previous value/state
       return prevState + 1;
     });
   };
