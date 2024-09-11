@@ -60,7 +60,7 @@ const Home = () => {
       {items.map((item, index) => (
         <Counter
           key={index} //Always pass unique ID in key  if want manipulation  & if we want to display only then we can use index
-          itemName={item.itemName}
+          itemName={item}
           onDelete={() => deleteItem(index)} // Pass delete function
         />
       ))}
