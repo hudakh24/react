@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Layout from "./components/Layouts";
 import PrivateRoute from "./components/PrivateRoute";
 import "./index.css";
+import FormValidation from "./pages/FormValidation";
 
 const App = () => {
   return (
@@ -34,10 +35,11 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route path="form" element={<FormValidation />} />
         <Route path="product-details/:id" element={<ProductDetails />} />
 
         <Route path="user-auth" element={<UserAuth />}>
-          <Route path="login" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />{" "}
           <Route path="signup" element={<Signup />} />
         </Route>
 

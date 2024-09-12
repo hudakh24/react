@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Counter from "../components/Counter";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { userAuthContext } from "../contexts/userAuthContext";
 
 const Home = () => {
   const [userInput, setUserInput] = useState(""); //store input into state
   const [items, setItems] = useState(["Jeans", "Shirt"]);
   const navigate = useNavigate();
   // const [deleteCheck, setDeleteCheck] = useState(false);
-
+  const x = useContext(userAuthContext);
+  console.log("--->", x);
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
   };
